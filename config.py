@@ -38,8 +38,8 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
-    MAIL_SERVER = 'smtp.sina.com'
-    MAIL_PORT = 25
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 587
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
