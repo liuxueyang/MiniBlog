@@ -1,0 +1,10 @@
+<p>你好 {{ user.username }}，</p>
+
+<p>点击这个链接
+<a href="{{ url_for('auth.confirm', token=token, _external=True) }}">
+  确认
+</a>
+激活你的账户。
+</p>
+
+<p><strong>如果你没有注册MiniBlog，请忽略这封邮件。</strong></p>

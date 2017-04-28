@@ -1,0 +1,1 @@
+用户{{ user.username }} ({{ user.email }}) 正在注册。

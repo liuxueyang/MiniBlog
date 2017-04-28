@@ -1,0 +1,4 @@
+请访问这个地址
+{{ url_for('auth.change_email', token=token, _external=True) }}
+确认更换邮箱。
+

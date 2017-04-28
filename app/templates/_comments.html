@@ -1,0 +1,40 @@
+<ul class="comments">
+  {% for comment in comments %}
+  <li class="comment">
+    <div class="comment-thumbnail">
+      <a href="{{ url_for('.user', username=comment.author.username) }}">
+	<img class="img-rounded profile-thumbnail" alt="" src="{{ comment.author.gravatar(size=40) }}"/>
+      </a>
+    </div>
+
+    <div class="comment-date">
+      {{ moment(comment.timestamp).fromNow() }}
+    </div>
+
+    <div class="comment-author">
+      <a href="{{ url_for('.user', username=comment.author.username) }}">
+	{{ comment.author.username }}
+      </a>
+    </div>
+
+    <div class="comment-content">
+      {% if comment.body_html %}
+	{{ comment.body_html | safe }}
+      {% else %}
+	{{ comment.body }}
+      {% endif %}
+
+      {# I don't need editing comment now #}
+      
+      {# <div class="comment-footer"> #}
+      {# 	<a href="{{ url_for('.comment', id=comment.id) }}"><span class="label label-default">Permalink</span></a> #}
+      {# 	{% if current_user == comment.author %} #}
+      {# 	  <a href="{{ url_for('.edit', id=comment.id) }}"><span class="label label-primary">Edit</span></a> #}
+      {# 	{% elif current_user.is_administrator() %} #}
+      {# 	  <a href="{{ url_for('.edit', id=comment.id) }}"><span class="label label-danger">Edit [Admin]</span></a> #}
+      {# 	{% endif %} #}
+      {# </div> #}
+    </div>
+  </li>
+  {% endfor %}
+</ul>

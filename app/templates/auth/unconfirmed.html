@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+  MiniBlog - 确认账户
+{% endblock title %}
+
+{% block page_content %}
+  <div class="page-header">
+    <h1>你好， {{ current_user.username }}!</h1>
+    <h3>你的帐号还没有激活</h3>
+    <p>请检查你的邮箱，点击邮箱里的链接激活账户。</p>
+    <p>再发一封激活邮件？
+      <a href="{{ url_for('auth.resend_confirmation') }}">是</a>
+    </p>
+  </div>
+{% endblock page_content %}
