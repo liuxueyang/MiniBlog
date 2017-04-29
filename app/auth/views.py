@@ -57,7 +57,6 @@ def register():
             user=user,
             token=token)
         if current_app.config['MINIBLOG_ADMIN']:
-            print "sending email", '-' * 20, '\n\n\n'
             send_email(
                 current_app.config['MINIBLOG_ADMIN'],
                 'New User',

@@ -12,7 +12,6 @@ def send_email(to, subject, template, **kwargs):
         recipients=[to])
     msg.body = render_template(template + '.txt', **kwargs)
     msg.html = render_template(template + '.html', **kwargs)
-    print "sending now...", "-+-" * 20, '\n' * 4
     mail.send(msg)
     # thr = Thread(target=send_async_email, args=[app, msg])
     # thr.start()
