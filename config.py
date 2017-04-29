@@ -4,7 +4,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
-    #TODO
     SECRET_KEY = os.environ.get('SECRET_KEY') or '_____________'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -45,12 +44,9 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
-    # MAIL_SERVER = 'mail.gmx.com'
-    # MAIL_PORT = 587
     MAIL_SERVER = 'smtp.sina.com'
     MAIL_PORT = 25
 
-    # MAIL_USE_SSL = True
     MAIL_USER_TLS = True
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
