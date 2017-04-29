@@ -113,7 +113,7 @@ def resend_confirmation():
     return redirect(url_for('main.index'))
 
 
-@auth.route('/', methods=['GET', 'POST'])
+@auth.route('/reset', methods=['GET', 'POST'])
 @login_required
 def change_password():
     form = ChangePasswordForm()

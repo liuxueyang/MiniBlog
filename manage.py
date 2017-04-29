@@ -2,7 +2,7 @@
 
 import os
 from app import create_app, db
-from app.models import User, Role, Post
+from app.models import User, Role, Post, Comment
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 from werkzeug.security import generate_password_hash
@@ -29,13 +29,24 @@ def test():
 
 
 @manager.command
-def clear_users():
+def reset_db():
     """Clear user database"""
     users = User.query.all()
 
     for u in users:
         db.session.delete(u)
 
+    posts = Post.query.all()
+
+    for p in posts:
+        db.session.delete(p)
+
+    comments = Comment.query.all()
+
+    for c in comments:
+        db.session.delete(c)
+
+    Role.insert_roles()
     db.session.commit()
 
 
@@ -52,12 +63,6 @@ def add_admin():
             os.getenv('MINIBLOGY_ADMIN_PASSWORD'))
         db.session.add(admin_user)
         db.session.commit()
-
-
-@manager.command
-def insert_roles():
-    """Add Roles to database"""
-    Role.insert_roles()
 
 
 if __name__ == '__main__':

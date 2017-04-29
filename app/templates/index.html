@@ -14,9 +14,7 @@
     {% endif %}!
     </h1>
   </div>
-  
 
-  <p>What do you think?</p>
   {% if current_user.can(Permission.WRITE_ARTICLES) %}
     <div>
       {{ wtf.quick_form(form) }}
@@ -24,12 +22,12 @@
   {% endif %}
 
   {% include '_posts.html' %}
-  
+
   {# {{ wtf.quick_form(form) }} #}
-  {% if pagination %} 
-    <div class="pagination"> 
+  {% if pagination %}
+    <div class="pagination">
       {{ macros.pagination_widget(pagination, '.index') }}
-    </div> 
+    </div>
   {% endif %}
 
 {# <p>访问页面的时间：{{ moment(current_time).format('LLL') }}。</p>  #}
