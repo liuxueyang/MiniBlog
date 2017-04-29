@@ -8,12 +8,12 @@
 {% endblock scripts %}
 
 {% block page_content %}
-  <div class="page-header">
-    <h1>Hello{% if current_user.is_authenticated %}
-      {{ current_user.username }}
-    {% endif %}!
-    </h1>
-  </div>
+  {# <div class="page-header"> #}
+  {#   <h1>Hello{% if current_user.is_authenticated %} #}
+  {#     {{ current_user.username }} #}
+  {#   {% endif %}! #}
+  {#   </h1> #}
+  {# </div> #}
 
   {% if current_user.can(Permission.WRITE_ARTICLES) %}
     <div>
