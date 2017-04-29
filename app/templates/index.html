@@ -16,6 +16,7 @@
   </div>
   
 
+  <p>What do you think?</p>
   {% if current_user.can(Permission.WRITE_ARTICLES) %}
     <div>
       {{ wtf.quick_form(form) }}

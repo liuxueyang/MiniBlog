@@ -57,6 +57,7 @@ def register():
             user=user,
             token=token)
         if current_app.config['MINIBLOG_ADMIN']:
+            print "sending email", '-' * 20, '\n\n\n'
             send_email(
                 current_app.config['MINIBLOG_ADMIN'],
                 'New User',
@@ -104,7 +105,7 @@ def unconfirmed():
 def resend_confirmation():
     token = current_user.generate_confirmation_token()
     send_email(
-        current_user,
+        current_user.email,
         'Confirm Your Account',
         'auth/email/confirm',
         user=current_user,
