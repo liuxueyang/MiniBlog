@@ -21,10 +21,11 @@ class RegistrationForm(FlaskForm):
     username = StringField(
         'Username',
         validators=[
-            Required(), Length(1, 64), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-                                              'Username must have only letters'
-                                              ', numbers, dots or '
-                                              'underscores')
+            Required(), Length(1, 64),
+            Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
+                   'Username must have only letters'
+                   ', numbers, dots or '
+                   'underscores. And must start with letters.')
         ])
     password = PasswordField(
         'Password',
