@@ -54,7 +54,7 @@ def add_admin():
         db.session.commit()
 
 
-@manager.command()
+@manager.command
 def insert_roles():
     """Add Roles to database"""
     Role.insert_roles()
