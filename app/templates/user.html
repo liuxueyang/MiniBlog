@@ -48,12 +48,12 @@
 	  <a class="btn btn-default" href="{{ url_for('.edit_profile') }}">
 	    编辑账户信息
 	  </a>
-	{% endif %}
-
-	{% if user == current_user %}
 	  <a class="btn btn-default" href="{{ url_for('auth.change_email_request') }}">
 	    修改登录邮箱
 	  </a>
+	  <a class="btn btn-default" href="{{ url_for('auth.change_password') }}"> 
+	    修改登录密码
+	  </a> 
 	{% endif %}
 
 	{% if current_user.is_administrator() %}
