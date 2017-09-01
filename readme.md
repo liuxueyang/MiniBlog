@@ -1,5 +1,3 @@
-这是一个小博客系统。托管在[Heroku m1n1b10g](http://m1n1b10g.herokuapp.com/)。
-
 ## 功能
 
 1. 博客和评论支持基本markdown语法（不支持图片）。
