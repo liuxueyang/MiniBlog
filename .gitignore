@@ -90,3 +90,4 @@ venv2.7.13_now/
 .ropeproject
 
 *~
+.idea/
