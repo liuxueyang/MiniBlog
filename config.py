@@ -11,8 +11,8 @@ class Config:
     MINIBLOG_MAIL_SENDER = 'MiniBlog admin <' + os.environ.get(
         'MINIBLOG_ADMIN') + '>'
     MINIBLOG_ADMIN = os.environ.get('MINIBLOG_ADMIN')
-    MINIBLOG_POSTS_PER_PAGE = 10
-    MINIBLOG_COMMENTS_PER_PAGE = 5
+    MINIBLOG_POSTS_PER_PAGE = 30
+    MINIBLOG_COMMENTS_PER_PAGE = 30
 
     @staticmethod
     def init_app(app):

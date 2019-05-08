@@ -95,6 +95,9 @@ div.flask-pagedown-preview h2 {
 div.flask-pagedown-preview h3 {
     font-size: 120%;
 }
+#flask-pagedown-body {
+    height: 20em;
+}
 .post-content h1 {
     font-size: 140%;
 }
