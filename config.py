@@ -52,7 +52,7 @@ class ProductionConfig(Config):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
     SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'HEROKU_POSTGRESQL_TEAL_URL') or 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+        'DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
 
 class HerokuConfig(ProductionConfig):
