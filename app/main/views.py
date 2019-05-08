@@ -141,7 +141,7 @@ def post(id):
             post=post,
             author=current_user._get_current_object())
         db.session.add(comment)
-        flash('Your Comment has been published.')
+        flash('评论发表成功啦～')
         return redirect(url_for('.post', id=post.id, page=-1))
 
     page = request.args.get('page', 1, type=int)
