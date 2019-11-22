@@ -1,14 +1,14 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, BooleanField
 from wtforms import SelectField, ValidationError
-from wtforms.validators import Required, Length, Email, Regexp
+from wtforms.validators import Length, Email, Regexp, DataRequired
 from flask_pagedown.fields import PageDownField
 
 from ..models import Role, User
 
 
 class NameForm(FlaskForm):
-    name = StringField('What is your name?', validators=[Required()])
+    name = StringField('What is your name?', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 
@@ -21,14 +21,15 @@ class EditProfileForm(FlaskForm):
 
 class EditProfileAdminForm(FlaskForm):
     email = StringField(
-        'Email', validators=[Required(), Length(1, 64), Email()])
+        'Email', validators=[DataRequired(), Length(1, 64), Email()])
     username = StringField(
         'Username',
         validators=[
-            Required(), Length(1, 64), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-                                              'Username must have only letters'
-                                              ', numbers, dots or '
-                                              'underscores')
+            DataRequired(), Length(1, 64),
+            Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
+                   'Username must have only letters'
+                   ', numbers, dots or '
+                   'underscores')
         ])
     confirmed = BooleanField('Confirmed')
     role = SelectField('Role', coerce=int)
@@ -55,10 +56,10 @@ class EditProfileAdminForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    body = PageDownField("你在想什么～", validators=[Required()])
+    body = PageDownField("你在想什么～", validators=[DataRequired()])
     submit = SubmitField('提交')
 
 
 class CommentForm(FlaskForm):
-    body = StringField('', validators=[Required()])
+    body = StringField('', validators=[DataRequired()])
     submit = SubmitField('提交')
