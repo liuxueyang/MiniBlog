@@ -128,19 +128,19 @@ def post(_id):
 @main.route('/edit/<int:_id>', methods=['GET', 'POST'])
 @login_required
 def edit(_id):
-    post = Post.query.get_or_404(_id)
+    _post = Post.query.get_or_404(_id)
 
-    if current_user != post.author and \
+    if current_user != _post.author and \
        not current_user.can(Permission.ADMINISTER):
         abort(403)
 
     form = PostForm()
 
     if form.validate_on_submit():
-        post.body = form.body.data
-        db.session.add(post)
+        _post.body = form.body.data
+        db.session.add(_post)
         flash('The post has been updated.')
-        return redirect(url_for('.post', id=post.id))
+        return redirect(url_for('.post', id=_post.id))
 
-    form.body.data = post.body
+    form.body.data = _post.body
     return render_template('edit_post.html', form=form)
